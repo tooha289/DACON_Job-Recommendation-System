@@ -1,10 +1,17 @@
-- [Background](#background)
-- [Theme](#theme)
-- [Description](#description)
-- [Host / Organizer](#host--organizer)
-- [Dataset Information](#dataset-information)
-- [Reference and Citation](#reference-and-citation)
+- [배경](#배경)
+- [주제](#주제)
+- [설명](#설명)
+- [주최 / 주관](#주최--주관)
+- [데이터 설명](#데이터-설명)
+- [개발 환경](#개발-환경)
+- [라이브러리 환경](#라이브러리-환경)
+- [실행](#실행)
+  - [제출 결과 재현](#제출-결과-재현)
+  - [모델 별 실행](#모델-별-실행)
+- [참조 및 인용](#참조-및-인용)
   - [BSPM \[link\]](#bspm-link)
+  - [LT-OCF \[link\]](#lt-ocf-link)
+  - [SSCF \[link\]](#sscf-link)
 
 # 배경
 국민대학교 경영대학원 AI빅데이터/디지털마케팅전공과 경영대학에서 ‘제1회 국민대학교 AI빅데이터 분석 경진대회’를 개최합니다.
