@@ -1,0 +1,8 @@
+name: sscf_new
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8.8
+  - numpy=1.19.5
+  - pandas=1.2.4
+  - scikit-learn=1.0.2

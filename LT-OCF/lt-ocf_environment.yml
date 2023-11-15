@@ -1,0 +1,18 @@
+name: lt-ocf_f
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - pandas=1.2.0
+  - pip=20.3.3
+  - python=3.7.9
+  - scikit-learn=0.23.2
+  - scipy=1.5.2
+  - pytorch=1.7.1
+  - cudatoolkit=10.1
+  - pip:
+    - numpy==1.19.5
+    - tensorboardx==2.1
+    - torchdiffeq==0.2.0
+    - cppimport==21.1.11
+    - protobuf==3.19.0
