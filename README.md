@@ -66,6 +66,10 @@
 ※ 상세 데이터 명세는 [링크](https://dacon.io/competitions/official/236170/talkboard/409868?page=1&dtype=recent)를 반드시 참고해주세요.
 
 # 개발 환경
+* OS version : Windowns 10 Home
+* CPU : Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+* GPU : NVIDIA GeForce RTX 2070
+* RAM : 16GB
 
 # 라이브러리 환경
 **Install python environment**
@@ -152,7 +156,7 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
   랜덤 시드 파라미터입니다.
 
 ### BSPM
-* BSPM 모델은 상호 작용 행렬에 대한 연속적인 흐리게 만들기와 선명화 프로세스를 통해 추천을 수행하는 협업 필터링 기법으로, 학습 없이도 높은 정확도를 달성합니다.``
+* BSPM 모델은 상호 작용 행렬에 대한 연속적인 흐리게 만들기와 선명화 프로세스를 통해 추천을 수행하는 협업 필터링 기법으로, 학습 없이도 높은 정확도를 달성합니다.
 * 이 모델은 흐리게 만들기와 선명화 함수를 수학적 모델로 표현하며, 다양한 변형을 통해 다른 CF 방법을 포용하면서도 뛰어난 성능을 보입니다.
 * BSPM은 높은 효율과 간결한 설계로 신경망이나 임베딩 벡터 없이도 기존 방법을 상당히 능가하는 협업 필터링 모델입니다.
 
@@ -175,7 +179,9 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
   Sharpening ODE(Ordinary Differential Equation) 해법을 선택합니다.
   - euler: Euler method
   - rk4: Runge-Kutta 4th order method
-  - K_s: Sharpening의 단계 수 (The number of sharpening steps)
+* `K_s`: 
+  
+  Sharpening의 단계 수입니다. (The number of sharpening steps)
 
 * `T_s`:
 
