@@ -92,7 +92,7 @@ conda activate job
 ## 모델 별 실행
 ### LT-OCF
 * 학습 가능한 시간 기반의 미분 방정식을 활용한 협업 필터링 방법
-* 미분 방정식의 개념인 NODEs(Neural Ordinary Differential Equations)위에 레이어 조합과 함께 Linear GCN을 재설계
+* LightGCN을 포함한 선형 GCN은 이론적으로 미분 방정식으로 해석될 수 있기 때문에 신경 상미분 방정식(NODE) 개념 위에 레이어 조합으로 선형 GCN을 재설계
 
 **In terminal**
 
@@ -114,19 +114,19 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
   사용할 모델을 선택하는 파라미터입니다. 여기서는 "ltocf"를 사용합니다.
 * `solver` (euler, rk4, implicit_adams, dopri5):
   
-  ODEs를 해결하기 위한 수치적인 방법을 지정하는 파라미터입니다. 주어진 옵션으로는 Explicit Euler Method (euler), Runge-Kutta Method (rk4), Implicit Adams Method (implicit_adams), Dormand-Prince Method (dopri5) 등이 있습니다.
+  ODE solver를 지정하는 파라미터입니다. 주어진 옵션으로는 Explicit Euler Method (euler), Runge-Kutta Method (rk4), Implicit Adams Method (implicit_adams), Dormand-Prince Method (dopri5) 등이 있습니다.
 * `adjoint` (False, True):
 
   Adjoint ODE Solver를 사용할지 여부를 결정하는 파라미터입니다. Adjoint Solver는 ODEs를 더 효율적으로 해결하는 데 도움이 될 수 있습니다.
 * `K` (1, 2, 3, 4):
   
-  ODEs를 푸는 시간 범위를 결정하는 파라미터로, K 값은 시간의 최대 범위를 나타냅니다.
+  최종 적분 시간 K값 입니다.
 * `learnable_time` (True, False):
 
-  모델이 학습 가능한 시간을 사용할지 여부를 결정하는 파라미터입니다. 만약 True로 설정되면, 학습 중에 시간 변수가 조절 가능하며, False로 설정되면 고정된 시간이 사용됩니다.
+  모델이 학습 가능한 시간을 사용할지 여부를 결정하는 파라미터입니다.
 * `dual_res` (False, True):
   
-  이 파라미터가 True로 설정되면, 모델은 dual residual connections를 사용하여 ODEs를 계산합니다. 이는 Learnable-time Architecture에 대한 개선된 형태를 나타냅니다.
+  이 파라미터가 True로 설정되면, 모델은 dual residual connections를 사용하여 ODEs를 계산합니다. 
 * `lr`:
 
   학습률을 나타내는 파라미터입니다.
@@ -156,8 +156,8 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
   랜덤 시드 파라미터입니다.
 
 ### BSPM
-* BSPM 모델은 상호 작용 행렬에 대한 연속적인 흐리게 만들기와 선명화 프로세스를 통해 추천을 수행하는 협업 필터링 기법으로, 학습 없이도 높은 정확도를 달성합니다.
-* 이 모델은 흐리게 만들기와 선명화 함수를 수학적 모델로 표현하며, 다양한 변형을 통해 다른 CF 방법을 포용하면서도 뛰어난 성능을 보입니다.
+* BSPM 모델은 상호 작용 행렬에 대한 연속적인 Blurring과 Sharpening 프로세스를 통해 추천을 수행하는 협업 필터링 기법으로, 학습 없이도 높은 정확도를 달성합니다.
+* 이 모델은 Blurring과 Sharpening 함수를 수학적 모델로 표현하며, 다양한 변형을 통해 다른 CF 방법을 포용하면서도 뛰어난 성능을 보입니다.
 * BSPM은 높은 효율과 간결한 설계로 신경망이나 임베딩 벡터 없이도 기존 방법을 상당히 능가하는 협업 필터링 모델입니다.
 
 **In terminal**
@@ -205,7 +205,7 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
   랜덤 시드 파라미터입니다.
 
 ### SSCF
-* 
+* 사용자 또는 항목 간의 유사성 측정하여 이러한 이웃을 기반으로 추천하는 메모리 기반 협업 필터링
 
 **In terminal**
 
