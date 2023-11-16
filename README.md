@@ -157,7 +157,6 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
 
 ### BSPM
 * BSPM 모델은 상호 작용 행렬에 대한 연속적인 Blurring과 Sharpening 프로세스를 통해 추천을 수행하는 협업 필터링 기법으로, 학습 없이도 높은 정확도를 달성합니다.
-* 이 모델은 Blurring과 Sharpening 함수를 수학적 모델로 표현하며, 다양한 변형을 통해 다른 CF 방법을 포용하면서도 뛰어난 성능을 보입니다.
 * BSPM은 높은 효율과 간결한 설계로 신경망이나 임베딩 벡터 없이도 기존 방법을 상당히 능가하는 협업 필터링 모델입니다.
 
 **In terminal**
@@ -172,8 +171,8 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
 * `final_sharpening`:
   
   최종 Sharpening 단계에서의 합성 방법을 결정합니다.
-  - True: Early Merge (EM) - Sharpening과 Blurring의 결과를 조합하여 최종 결과 생성
-  - False: Late Merge (LM) - Sharpening과 Blurring의 결과를 따로 유지
+  - True: Early Merge (EM)
+  - False: Late Merge (LM)
 * `solver_shr`:
 
   Sharpening ODE(Ordinary Differential Equation) 해법을 선택합니다.
@@ -192,20 +191,21 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
   모델에서 사용할 시간 포인트 조합 방법을 설정합니다.
 
   - True: 다양한 시간 포인트의 조합을 사용하여 모델링
-  - False: 단일 시간 포인트만 사용하여 모델링
 * `idl_beta`:
 
-  IDL에서 사용되는 베타 값으로, blurring과 sharpening 간 상호 작용의 강도를 제어합니다. 높은 베타 값은 강한 상호 작용을 나타냅니다.
+  IDL의 베타 값입니다.
 
 * `factor_dim`:
 
-  잠재 요인의 차원으로, 모델이 학습하는 잠재적 특징의 수를 나타냅니다. 더 높은 잠재 요인 차원은 모델의 복잡성을 증가시킬 수 있지만, 과적합의 위험을 증가시킬 수도 있습니다.
+  잠재 요인의 차원으로, 모델이 학습하는 잠재적 특징의 수를 나타냅니다. 
 * `seed`(default: 2020):
 
   랜덤 시드 파라미터입니다.
 
 ### SSCF
-* 사용자 또는 항목 간의 유사성 측정하여 이러한 이웃을 기반으로 추천하는 메모리 기반 협업 필터링
+* Memory based 알고리즘은 사용자-아이템 행렬을 생성하여 유사도를 측정하여 추천항목 식별
+* 사용자 간 유사도를 측정하면 사용자 기반(User-based) 협업 필터링
+* 아이템 간 유사도를 측정하면 아이템 기반(Item-based) 협업 필터링
 
 **In terminal**
 
