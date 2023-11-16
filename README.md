@@ -8,6 +8,8 @@
 - [실행](#실행)
   - [제출 결과 재현](#제출-결과-재현)
   - [모델 별 실행](#모델-별-실행)
+    - [LT-OCF](#lt-ocf)
+      - [Parameters](#parameters)
 - [참조 및 인용](#참조-및-인용)
   - [BSPM \[link\]](#bspm-link)
   - [LT-OCF \[link\]](#lt-ocf-link)
@@ -67,6 +69,66 @@
 ## 제출 결과 재현
 
 ## 모델 별 실행
+### LT-OCF
+* 학습 가능한 시간 기반의 미분 방정식을 활용한 협업 필터링 방법
+* 미분 방정식의 개념인 NODEs(Neural Ordinary Differential Equations)위에 레이어 조합과 함께 Linear GCN을 재설계
+
+**In terminal**
+
+`LT-OCF/code`위치를 현재 디렉토리로 설정합니다. 
+```
+python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=False --dual_res=False --lr=1e-3 --lr_time=1e-3 --decay=1e-4 --topks="[20]" --tensorboard=1 --gpuid=0 --epochs=320 --layer=2 --recdim=360 --bpr_batch=2048 --pretrain=0
+```
+
+#### Parameters
+* `gpuid` (default: 0):
+  
+  GPU를 사용하는 경우, 학습 및 예측에 사용할 GPU의 ID를 나타냅니다. 
+* `dataset` (JOB):
+  
+  사용할 데이터셋을 선택하는 파라미터입니다. 주어진 옵션은 "JOB"만이 존재합니다.
+* `model` (ltocf):
+  
+  사용할 모델을 선택하는 파라미터입니다. 여기서는 "ltocf"를 사용합니다.
+* `solver` (euler, rk4, implicit_adams, dopri5):
+  
+  ODEs를 해결하기 위한 수치적인 방법을 지정하는 파라미터입니다. 주어진 옵션으로는 Explicit Euler Method (euler), Runge-Kutta Method (rk4), Implicit Adams Method (implicit_adams), Dormand-Prince Method (dopri5) 등이 있습니다.
+* `adjoint` (False, True):
+
+  Adjoint ODE Solver를 사용할지 여부를 결정하는 파라미터입니다. Adjoint Solver는 ODEs를 더 효율적으로 해결하는 데 도움이 될 수 있습니다.
+* K (1, 2, 3, 4):
+  
+  ODEs를 푸는 시간 범위를 결정하는 파라미터로, K 값은 시간의 최대 범위를 나타냅니다.
+* `learnable_time` (True, False):
+
+  모델이 학습 가능한 시간을 사용할지 여부를 결정하는 파라미터입니다. 만약 True로 설정되면, 학습 중에 시간 변수가 조절 가능하며, False로 설정되면 고정된 시간이 사용됩니다.
+* `dual_res` (False, True):
+  
+  이 파라미터가 True로 설정되면, 모델은 dual residual connections를 사용하여 ODEs를 계산합니다. 이는 Learnable-time Architecture에 대한 개선된 형태를 나타냅니다.
+* `lr`:
+
+  학습률을 나타내는 파라미터입니다.
+* `lr_time`:
+
+  시간에 대한 학습률을 나타내는 파라미터입니다.
+* `decay`:
+
+  가중치 감쇠 (weight decay)를 나타내는 파라미터입니다.
+* `topks`:
+
+  성능 측정에서 사용할 Top-K 값들을 나타내는 파라미터입니다.
+* `epochs`:
+
+  전체 학습 에폭 수를 나타내는 파라미터입니다.
+* `layer`:
+
+  뉴럴 네트워크의 레이어 수를 나타내는 파라미터입니다.
+* `recdim`:
+
+  임베딩 차원을 나타내는 파라미터입니다.
+* `bpr_batch`:
+
+  BPR 손실을 계산할 때 사용되는 배치 크기를 나타내는 파라미터입니다.
 
 # 참조 및 인용
 ## BSPM [[link]](https://github.com/jeongwhanchoi/BSPM)
