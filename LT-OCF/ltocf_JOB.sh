@@ -1,1 +1,0 @@
-cd code && python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=False --dual_res=False --lr=1e-3 --lr_time=1e-3 --decay=1e-4 --layer=2 --recdim=360 --topks="[20]" --tensorboard=1 --gpuid=0 --epochs=800 --bpr_batch=2048 --pretrain=0

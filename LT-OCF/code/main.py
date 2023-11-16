@@ -47,7 +47,6 @@ else:
     world.cprint("not enable tensorflowboard")
 
 try:
-
     for epoch in range(world.TRAIN_epochs+1):
         start = time.time()
         # if epoch %10 == 0:
@@ -56,7 +55,7 @@ try:
 
         if world.model_name == 'ltocf':
             if world.config['learnable_time'] == False:
-                output_information, avg_loss = output_information = Procedure.BPR_train_original(dataset, Recmodel, bpr, epoch, neg_k=Neg_k,w=w)
+                output_information, avg_loss = Procedure.BPR_train_original(dataset, Recmodel, bpr, epoch, neg_k=Neg_k,w=w)
                 print(f'EPOCH[{epoch+1}/{world.TRAIN_epochs}] {output_information}')
             else:
                 output_information, times_list, avg_loss = Procedure.BPR_train_ode(dataset, Recmodel, bpr_t, epoch, neg_k=Neg_k,w=w)

@@ -10,6 +10,8 @@
   - [모델 별 실행](#모델-별-실행)
     - [LT-OCF](#lt-ocf)
       - [Parameters](#parameters)
+    - [BSPM](#bspm)
+      - [Parameters](#parameters-1)
 - [참조 및 인용](#참조-및-인용)
   - [BSPM \[link\]](#bspm-link)
   - [LT-OCF \[link\]](#lt-ocf-link)
@@ -81,6 +83,7 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
 ```
 
 #### Parameters
+`parse.py` 에서 더 많은 파라미터를 확인 할 수 있습니다.
 * `gpuid` (default: 0):
   
   GPU를 사용하는 경우, 학습 및 예측에 사용할 GPU의 ID를 나타냅니다. 
@@ -96,7 +99,7 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
 * `adjoint` (False, True):
 
   Adjoint ODE Solver를 사용할지 여부를 결정하는 파라미터입니다. Adjoint Solver는 ODEs를 더 효율적으로 해결하는 데 도움이 될 수 있습니다.
-* K (1, 2, 3, 4):
+* `K` (1, 2, 3, 4):
   
   ODEs를 푸는 시간 범위를 결정하는 파라미터로, K 값은 시간의 최대 범위를 나타냅니다.
 * `learnable_time` (True, False):
@@ -129,6 +132,55 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
 * `bpr_batch`:
 
   BPR 손실을 계산할 때 사용되는 배치 크기를 나타내는 파라미터입니다.
+* `seed`(default: 2020):
+
+  랜덤 시드 파라미터입니다.
+
+### BSPM
+* 학습 가능한 시간 기반의 미분 방정식을 활용한 협업 필터링 방법
+* 미분 방정식의 개념인 NODEs(Neural Ordinary Differential Equations)위에 레이어 조합과 함께 Linear GCN을 재설계
+
+**In terminal**
+
+`BSPM/bspm`위치를 현재 디렉토리로 설정합니다. 
+```
+python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr="rk4" --K_s=1 --T_s=3.5 --final_sharpening=True --idl_beta=0.3 --factor_dim=960
+```
+
+#### Parameters
+`parse.py` 에서 더 많은 파라미터를 확인 할 수 있습니다.
+* `final_sharpening`:
+  
+  최종 Sharpening 단계에서의 합성 방법을 결정합니다.
+  - True: Early Merge (EM) - Sharpening과 Blurring의 결과를 조합하여 최종 결과 생성
+  - False: Late Merge (LM) - Sharpening과 Blurring의 결과를 따로 유지
+* `solver_shr`:
+
+  Sharpening ODE(Ordinary Differential Equation) 해법을 선택합니다.
+  - euler: Euler method
+  - rk4: Runge-Kutta 4th order method
+  - K_s: Sharpening의 단계 수 (The number of sharpening steps)
+
+* `T_s`:
+
+  Sharpening ODE의 종료 시간 (The terminal time of the sharpening ODE)입니다.
+
+* `t_point_combination`:
+
+  모델에서 사용할 시간 포인트 조합 방법을 설정합니다.
+
+  - True: 다양한 시간 포인트의 조합을 사용하여 모델링
+  - False: 단일 시간 포인트만 사용하여 모델링
+* `idl_beta`:
+
+  IDL에서 사용되는 베타 값으로, blurring과 sharpening 간 상호 작용의 강도를 제어합니다. 높은 베타 값은 강한 상호 작용을 나타냅니다.
+
+* factor_dim:
+
+  잠재 요인의 차원으로, 모델이 학습하는 잠재적 특징의 수를 나타냅니다. 더 높은 잠재 요인 차원은 모델의 복잡성을 증가시킬 수 있지만, 과적합의 위험을 증가시킬 수도 있습니다.
+* `seed`(default: 2020):
+
+  랜덤 시드 파라미터입니다.
 
 # 참조 및 인용
 ## BSPM [[link]](https://github.com/jeongwhanchoi/BSPM)
