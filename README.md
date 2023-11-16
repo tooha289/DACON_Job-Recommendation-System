@@ -196,7 +196,7 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
   IDL의 베타 값입니다.
   
   그래프 컨볼루션 분야에서는 다음과 같은 `Ideal low-pass filter`가 자주 사용됩니다.
-  ![IDL_BETA][image.png](https://github.com/tooha289/DACON_Job-Recommendation-System/blob/main/image/idl_beta.png)
+  ![IDL_BETA](https://github.com/tooha289/DACON_Job-Recommendation-System/blob/main/image/idl_beta.png)
 
 * `factor_dim`:
 
