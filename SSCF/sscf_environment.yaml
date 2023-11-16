@@ -1,4 +1,4 @@
-name: sscf_new
+name: sscf
 channels:
   - conda-forge
 dependencies:

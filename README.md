@@ -12,6 +12,8 @@
       - [Parameters](#parameters)
     - [BSPM](#bspm)
       - [Parameters](#parameters-1)
+    - [SSCF](#sscf)
+      - [Parameters](#parameters-2)
 - [참조 및 인용](#참조-및-인용)
   - [BSPM \[link\]](#bspm-link)
   - [LT-OCF \[link\]](#lt-ocf-link)
@@ -66,9 +68,20 @@
 # 개발 환경
 
 # 라이브러리 환경
+**Install python environment**
 
+```
+conda env create --file environment.yml
+```
+
+**Activate environment**
+
+```
+conda activate job
+```
 # 실행
 ## 제출 결과 재현
+1. 
 
 ## 모델 별 실행
 ### LT-OCF
@@ -175,12 +188,40 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
 
   IDL에서 사용되는 베타 값으로, blurring과 sharpening 간 상호 작용의 강도를 제어합니다. 높은 베타 값은 강한 상호 작용을 나타냅니다.
 
-* factor_dim:
+* `factor_dim`:
 
   잠재 요인의 차원으로, 모델이 학습하는 잠재적 특징의 수를 나타냅니다. 더 높은 잠재 요인 차원은 모델의 복잡성을 증가시킬 수 있지만, 과적합의 위험을 증가시킬 수도 있습니다.
 * `seed`(default: 2020):
 
   랜덤 시드 파라미터입니다.
+
+### SSCF
+* 
+
+**In terminal**
+
+`SSCF/sscf`위치를 현재 디렉토리로 설정합니다. 
+```
+python main.py --dataset="JOB" --test="test" --gamma=0.2 --similarity="pearson"
+```
+
+#### Parameters
+* `gamma`: 
+
+사용자 기반 및 아이템 기반 접근법을 결합하는 데 사용되는 감마 매개 변수의 값입니다. (기본값: 0.5).
+
+* `dataset`: 
+
+사용 가능한 데이터셋을 선택하는 옵션입니다. 가능한 값은 [JOB].
+
+* `similarity`: 
+
+사용할 유사성 지표를 선택하는 옵션입니다. 가능한 값은 [common_neighbors, jaccard, adamic_adar, resource_allocation, cosine_similarity, sorensen, hub_depressed_index, hub_promoted_index, taxonomy_network, probabilistic_spreading, pearson, sapling_similarity] 중 하나 (기본값: 'sapling_similarity').
+
+* `test`:
+
+ 모델을 적용할 데이터를 선택하는 옵션입니다. 가능한 값은 [validation, test] 중 하나 (기본값: 'test').
+
 
 # 참조 및 인용
 ## BSPM [[link]](https://github.com/jeongwhanchoi/BSPM)

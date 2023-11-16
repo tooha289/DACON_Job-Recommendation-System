@@ -1,4 +1,4 @@
-name: job_f
+name: job
 channels:
   - pytorch
   - nvidia

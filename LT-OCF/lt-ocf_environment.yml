@@ -1,4 +1,4 @@
-name: lt-ocf_f
+name: lt-ocf
 channels:
   - defaults
   - pytorch
