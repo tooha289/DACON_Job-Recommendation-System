@@ -81,7 +81,9 @@ conda activate job
 ```
 # 실행
 ## 제출 결과 재현
-1. 
+1. data 폴더에 DACON에서 제공한 파일을 위치시킵니다.
+   * [링크](https://github.com/tooha289/DACON_Job-Recommendation-System/blob/main/data/data.md) 참조
+2. `Job_Recommendation.ipynb` 파일의 [훈련 데이터 생성], [모델별 학습], [앙상블] 파트를 순차적으로 모두 실행시키면 `result`폴더에 앙상블 제출 파일이 생성됩니다.
 
 ## 모델 별 실행
 ### LT-OCF
@@ -150,8 +152,9 @@ python main.py --dataset="JOB" --model="ltocf" --solver="rk4" --adjoint=False --
   랜덤 시드 파라미터입니다.
 
 ### BSPM
-* 학습 가능한 시간 기반의 미분 방정식을 활용한 협업 필터링 방법
-* 미분 방정식의 개념인 NODEs(Neural Ordinary Differential Equations)위에 레이어 조합과 함께 Linear GCN을 재설계
+* BSPM 모델은 상호 작용 행렬에 대한 연속적인 흐리게 만들기와 선명화 프로세스를 통해 추천을 수행하는 협업 필터링 기법으로, 학습 없이도 높은 정확도를 달성합니다.``
+* 이 모델은 흐리게 만들기와 선명화 함수를 수학적 모델로 표현하며, 다양한 변형을 통해 다른 CF 방법을 포용하면서도 뛰어난 성능을 보입니다.
+* BSPM은 높은 효율과 간결한 설계로 신경망이나 임베딩 벡터 없이도 기존 방법을 상당히 능가하는 협업 필터링 모델입니다.
 
 **In terminal**
 
