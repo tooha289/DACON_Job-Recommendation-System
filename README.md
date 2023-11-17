@@ -70,6 +70,7 @@
 * CPU : Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
 * GPU : NVIDIA GeForce RTX 2070
 * RAM : 16GB
+* Python, Jupyterlab
 
 # 라이브러리 환경
 **사전 요구사항**
