@@ -1,4 +1,4 @@
-name: bspm
+name: bspm_T
 channels:
   - pytorch
   - nvidia

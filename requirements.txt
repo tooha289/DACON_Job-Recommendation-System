@@ -6,4 +6,4 @@ torchdiffeq==0.2.0
 cppimport==21.1.11
 protobuf==3.19.0
 cffi
-sparsesvd
+jupyterlab
