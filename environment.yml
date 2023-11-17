@@ -13,13 +13,13 @@ dependencies:
   - pytorch=1.7.1
   - cudatoolkit=10.1
   - numpy=1.19.5
-  # - pip:
-    # - setuptools==59.5.0
-    # - cython
-    # - tensorboard
-    # - tensorboardx==2.1
-    # - sparsesvd
-    # - torchdiffeq==0.2.0
-    # - cppimport==21.1.11
-    # - protobuf==3.19.0
-    # - cffi
+  - setuptools==59.5.0
+  - pip:
+    - cython
+    - tensorboard
+    - tensorboardx==2.1
+    - sparsesvd
+    - torchdiffeq==0.2.0
+    - cppimport==21.1.11
+    - protobuf==3.19.0
+    - cffi
