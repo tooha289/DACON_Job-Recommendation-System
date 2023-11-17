@@ -186,7 +186,6 @@ pyrightconfig.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks
 
-*/data/*
 BSPM/code/*
 
 LT-OCF/code/runs/*
@@ -195,3 +194,4 @@ LT-OCF/code/pretrain/*
 
 *.csv
 *.txt
+*.npz

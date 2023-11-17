@@ -72,17 +72,21 @@
 * RAM : 16GB
 
 # 라이브러리 환경
-**Install python environment**
+**사전 요구사항**
+* MSVC v140 - VS 2015 C++ 빌드 도구
 
+**파이썬 환경 설치**
 ```
+conda config --set channel_priority flexible
+
 conda env create --file environment.yml
 ```
 
-**Activate environment**
-
+**환경 활성화**
 ```
 conda activate job
 ```
+
 # 실행
 ## 제출 결과 재현
 1. data 폴더에 DACON에서 제공한 파일을 위치시킵니다.
