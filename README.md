@@ -99,8 +99,7 @@ pip install sparsesvd
 
 ## 설치 문제 발생 시
 
-* 통합 환경(environment.yml + requirements.txt)파일로 환경 설치 시 
-* 지속적인 문제가 발생한다면 각 모델별 환경(bspm_environment.yml, lt-ocf_environment.yml, cf_environment.yaml)으로 각각 설치 후 모델을 아래의 명령어를 참고하여 실행바랍니다.
+* 통합 환경(environment.yml + requirements.txt)파일로 환경 설치 시 지속적인 문제가 발생한다면 각 모델별 환경(`bspm_environment.yml`, `lt-ocf_environment.yml`, `cf_environment.yaml`)으로 각각 설치 후 모델을 아래의 명령어를 참고하여 실행바랍니다.
 
 # 실행
 ## 제출 결과 재현
