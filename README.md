@@ -78,7 +78,8 @@
 * Windows 10 SDK(10.0.20348.0)
 * MSVC v140 - VS 2015 C++ 빌드 도구(v14.00)
 * ![C++](https://github.com/tooha289/DACON_Job-Recommendation-System/blob/main/image/C%2B%2B.png)
-**파이썬 환경 설치**
+
+**파이썬 환경 설치**``
 ```
 conda env create --file environment.yml
 ```
