@@ -5,7 +5,7 @@
 - [데이터 설명](#데이터-설명)
 - [개발 환경](#개발-환경)
 - [라이브러리 환경](#라이브러리-환경)
-  - [설치 문제 발생 시](#설치-문제-발생-시)
+  - [지속적인 설치 문제 발생 시](#지속적인-설치-문제-발생-시)
 - [실행](#실행)
   - [제출 결과 재현](#제출-결과-재현)
   - [모델 별 실행](#모델-별-실행)
@@ -90,7 +90,7 @@ conda activate job
 `````
 **파이썬 환경 설치(pip 추가)**
 
-* environment.yml의 pip 설치 부분이 잘 설치되지 않을 수 있어 아래와 같은 순서로 라이브러리를 추가 설치합니다.
+* environment.yml의 pip 설치 부분에 문제가 있는 경우 아래와 같은 순서로 라이브러리를 추가 설치합니다.
 ```
 conda activate job
 
@@ -98,7 +98,7 @@ pip install -r requirements.txt
 pip install sparsesvd
 ```
 
-## 설치 문제 발생 시
+## 지속적인 설치 문제 발생 시
 
 * 통합 환경(environment.yml + requirements.txt)파일로 환경 설치 시 지속적인 문제가 발생한다면 각 모델별 환경(`bspm_environment.yml`, `lt-ocf_environment.yml`, `cf_environment.yaml`)으로 각각 설치 후 모델을 아래의 명령어를 참고하여 실행바랍니다.
 
