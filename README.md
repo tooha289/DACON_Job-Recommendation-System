@@ -79,7 +79,7 @@
 * MSVC v140 - VS 2015 C++ 빌드 도구(v14.00)
 * ![C++](https://github.com/tooha289/DACON_Job-Recommendation-System/blob/main/image/C%2B%2B.png)
 
-**파이썬 환경 설치**``
+**파이썬 환경 설치**
 ```
 conda env create --file environment.yml
 ```
@@ -87,7 +87,7 @@ conda env create --file environment.yml
 **환경 활성화**
 ```
 conda activate job
-```
+`````
 **파이썬 환경 설치(pip 추가)**
 
 * environment.yml의 pip 설치 부분이 잘 설치되지 않을 수 있어 아래와 같은 순서로 라이브러리를 추가 설치합니다.
