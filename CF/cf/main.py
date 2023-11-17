@@ -19,7 +19,7 @@ k_num = 20
 similarity_list = [args.similarity]
 gamma_list = [args.gamma]
 
-with open('../results/sscf_recall_result.csv', mode='w', newline='') as file:
+with open('../results/cf_recall_result.csv', mode='w', newline='') as file:
     field_names = ['gamma', 'similarity', 'recall@20']
     writer = csv.DictWriter(file, fieldnames=field_names)
     writer.writeheader()

@@ -12,7 +12,7 @@
       - [Parameters](#parameters)
     - [BSPM](#bspm)
       - [Parameters](#parameters-1)
-    - [SSCF](#sscf)
+    - [CF](#cf)
       - [Parameters](#parameters-2)
 - [참조 및 인용](#참조-및-인용)
   - [BSPM \[link\]](#bspm-link)
@@ -196,7 +196,7 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
   IDL의 베타 값입니다.
   
   그래프 컨볼루션 분야에서는 다음과 같은 `Ideal low-pass filter`가 자주 사용됩니다.
-  
+
   ![IDL_BETA](https://github.com/tooha289/DACON_Job-Recommendation-System/blob/main/image/idl_beta.png)
 
 * `factor_dim`:
@@ -206,14 +206,14 @@ python main.py --dataset="JOB" --topks="[20]" --simple_model="bspm" --solver_shr
 
   랜덤 시드 파라미터입니다.
 
-### SSCF
+### CF
 * Memory based 알고리즘은 사용자-아이템 행렬을 생성하여 유사도를 측정하여 추천항목 식별
 * 사용자 간 유사도를 측정하면 사용자 기반(User-based) 협업 필터링
 * 아이템 간 유사도를 측정하면 아이템 기반(Item-based) 협업 필터링
 
 **In terminal**
 
-`SSCF/sscf`위치를 현재 디렉토리로 설정합니다. 
+`CF/cf`위치를 현재 디렉토리로 설정합니다. 
 ```
 python main.py --dataset="JOB" --test="test" --gamma=0.2 --similarity="pearson"
 ```
