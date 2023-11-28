@@ -197,3 +197,5 @@ LT-OCF/code/pretrain/*
 /*/*.txt
 /*/*/*.txt
 /*/*/*/*.txt
+train.txt
+test.txt

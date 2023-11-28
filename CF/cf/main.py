@@ -71,7 +71,7 @@ with open('../results/cf_recall_result.csv', mode='w', newline='') as file:
 
             # ['rec'(최종 추천 모델) 성능 측정]
             print("measuring performance of final model...")
-            scores = utils.scores(train, test, rec, N_users, N_items, K=k_num)
+            scores = utils.scores(train, test, rec, N_users, N_items, K=k_num, data_set=data)
             # [K]: 상위 K개 의미
             # [scores]: utils.scores()의 결과로 (Precision, Recall, NDCG)의 값들을 포함
             # [Reacll(재현율)]: 실제로 사용자가 선호하는 아이템 중 상위 K개 아이템에 포함되는 아이템의 비율

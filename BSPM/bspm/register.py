@@ -4,7 +4,7 @@ import model
 import utils
 from pprint import pprint
 
-if world.dataset in ['JOB']:
+if world.dataset in ['JOB', 'JOB_1']:
     dataset = dataloader.Loader(path="../data/"+world.dataset)
 elif world.dataset == 'lastfm':
     dataset = dataloader.LastFM()

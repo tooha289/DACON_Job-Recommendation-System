@@ -69,7 +69,7 @@ def read_data(data):
     # [train]: '훈련 세트'에서 상호작용한 항목을 나타낸다.
     # [test]: '테스트 세트'에서 상호작용한 항목을 나타낸다.
 
-def scores(train, test, rec, Nu, Ni, K): # [Nu]:사용자 수, [Ni]:항목 수, [0]:상호작용O, [1]:상호작용X
+def scores(train, test, rec, Nu, Ni, K, data_set): # [Nu]:사용자 수, [Ni]:항목 수, [0]:상호작용O, [1]:상호작용X
     ndcgK = 0.0 # ndcgK 변수 초기화
     recK = 0.0 # recK 변수 초기화
     precK = 0.0 # precK 변수 초기화
@@ -114,12 +114,12 @@ def scores(train, test, rec, Nu, Ni, K): # [Nu]:사용자 수, [Ni]:항목 수, 
     
     SAVE_PATH = '../results/'
     # [recommend_idx 파일 저장용]
-    with open(f'{SAVE_PATH}pred_idx_list_20.txt', 'w') as file:
+    with open(f'{SAVE_PATH}pred_idx_{data_set}.txt', 'w') as file:
         for u, rec_idx in enumerate(pred_idx_list):
             file.write(f"{u} {' '.join(map(str, rec_idx))}\n")
     
     # [recommend_prob 파일 저장용]
-    with open(f'{SAVE_PATH}pred_prob_list_20.txt', 'w') as file:
+    with open(f'{SAVE_PATH}pred_prob_{data_set}.txt', 'w') as file:
         for u, rec_prob in enumerate(pred_prob_list):
             file.write(f"{u} {' '.join(map(str, rec_prob))}\n")
 

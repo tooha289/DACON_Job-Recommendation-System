@@ -21,7 +21,7 @@ if not os.path.exists(FILE_PATH):
 
 
 config = {}
-all_dataset = ['JOB']
+all_dataset = ['JOB', 'JOB_1', 'JOB_2_42']
 all_models  = ['mf', 'lgn', 'ltocf', 'ltocf2', 'ltocf1']
 # config['batch_size'] = 4096
 config['bpr_batch_size'] = args.bpr_batch
